@@ -3,7 +3,7 @@ using System;
 
 public partial class Camera : Camera3D
 {
-	private Vector3 mouseDelta = new Vector3(0, 0, 0);
+	private Vector2 rotation = Vector2.Zero;
 
 	public float HorizontalSensitivity = 5.0f;
 	public float VerticalSensitivity = 5.0f;
@@ -16,14 +16,17 @@ public partial class Camera : Camera3D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		Basis = Basis.Identity;
+		RotateObjectLocal(Vector3.Up, rotation.X);
+		RotateObjectLocal(Vector3.Right, rotation.Y);
 	}
 
-    public override void _Input(InputEvent @event)
-    {
+	public override void _Input(InputEvent @event)
+	{
 		if (@event is InputEventMouseMotion mouseMotion)
 		{
-			mouseDelta.X += mouseMotion.Relative.X * (float)GetProcessDeltaTime();
-			mouseDelta.Y += mouseMotion.Relative.Y * (float)GetProcessDeltaTime();
+			rotation.X += mouseMotion.Relative.X * (float)GetProcessDeltaTime();
+			rotation.Y += mouseMotion.Relative.Y * (float)GetProcessDeltaTime();
 		}
-    }
+	}
 }

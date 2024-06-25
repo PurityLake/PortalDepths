@@ -9,7 +9,7 @@
 transform = Transform3D(2.54568, 0, 0, 0, 0.0576414, 0, 0, 0, 2.98491, 0, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_j542e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0833812, 1.07129, 1.21846)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0833812, 0.210683, 1.21846)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.721567, 0.692345, 0, -0.692345, 0.721567, 0, 7, 5.14691)
